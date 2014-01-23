@@ -1,0 +1,23 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<div class="row container">
+    <div class="nine columns push">
+        <header>
+            {{widget('companyname', 'tyrol', {"business": "<h1>TYROL</h1>"})|raw}}
+            {{widget('menusections', 'menusections1', {})|raw}}
+        </header>
+        <div role ="main">
+            {{widget('menu', 'menu1', {})|raw}}
+        </div>        
+    </div>
+    <div class="three columns pull">
+        <footer>
+            {{widget('clicktocall', 'tyrol-call', {phoneText: '0800 123 123'})|raw}}
+        </footer>
+        {{widget('image', 'wine-img', { 'src': asset('/images/wine-img.jpg'), 'alt': 'Red wine', 'fileName': 'wine-img.jpg', 'fileSize': '', 'imageSize': '', 'imageWidth': '100%'})|raw}}
+    </div>
+</div>
+
+{% endblock %}
