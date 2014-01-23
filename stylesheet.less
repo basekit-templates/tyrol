@@ -142,10 +142,8 @@ header {
         &.companyname {
             display: inline-block;
             margin-right: 5%;
-            width: 60%;
+            width: 30%;
             a {
-            }
-            h1 {
                 font-family: @font-swatch10-font-family;
                 font-weight: @font-swatch10-font-weight;
                 color: @font-swatch10-color;
@@ -168,7 +166,7 @@ header {
         display: inline-block;
         min-height: 30px;
         margin: 0;
-        width: 25%;
+        width: 60%;
         ul {
             display: inline-block;
             padding: 2.5em 0 0;
@@ -349,10 +347,12 @@ div[role="main"] {
                                 }
                                 .vegetarian-icon {
                                     &:after {
+                                        content: "v";
                                     }              
                                 }
                                 .vegan-icon {
                                     &:after {
+                                        content: "vg";
                                     }              
                                 }
                                 .nutFree-icon {
@@ -366,6 +366,16 @@ div[role="main"] {
                                 .dairyFree-icon {
                                     &:after {
                                     } 
+                                }
+                                .not-spicy-icon {
+                                    &:after {
+                                        content: "ns";
+                                    }
+                                }
+                                .spicy-icon {
+                                    &:after {
+                                        content: "s";
+                                    }
                                 }
                             }  /* end nutritional icons */
                         }  /* end item content container */
