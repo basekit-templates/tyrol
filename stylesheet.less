@@ -143,6 +143,9 @@ header {
             display: inline-block;
             margin-right: 5%;
             width: 30%;
+            @media @tablet {
+                width: 60%;
+            }
             a {
                 font-family: @font-swatch10-font-family;
                 font-weight: @font-swatch10-font-weight;
@@ -166,12 +169,16 @@ header {
         display: inline-block;
         min-height: 30px;
         margin: 0;
-        width: 60%;
+        width: 64%;
+        @media @tablet {
+            width: 30%;
+        }
         ul {
             display: inline-block;
+            float: right;
             padding: 2.5em 0 0;
             margin: 0;
-            @media @mobile {
+            @media @tablet {
                 /* Hidden until nav icon is clicked */
                 display: none;
                 /* Then these styles are applied */
@@ -203,7 +210,7 @@ header {
                         color: @color-swatch5;
                     }
                 }
-                @media @mobile {
+                @media @tablet {
                     border-bottom: 1px solid fade(@color-swatch5, 20%);
                     margin: 0;
                     width: 100%;
@@ -218,7 +225,7 @@ header {
             &.menu-pull {
                 display: none;
                 position: relative;
-                @media @mobile {
+                @media @tablet {
                     display: block;
                     width: 100%;
                     position: absolute;
@@ -250,7 +257,9 @@ div[role="main"] {
             .main {
                 padding: 1em 0;
                 ol {  /* Menu sections */
+                    float: left;
                     margin: 0;
+                    width: 100%;
                 }
                 .menu-header, .menu-subsection-header {  /* Menu section headers */
                     margin: 2em 0;
@@ -367,10 +376,8 @@ div[role="main"] {
                                     &:after {
                                     } 
                                 }
-                                .not-spicy-icon {
-                                    &:after {
-                                        content: "ns";
-                                    }
+                                .dietary-icon + .not-spicy-icon {
+                                    display: none;
                                 }
                                 .spicy-icon {
                                     &:after {
@@ -416,9 +423,10 @@ div[role="main"] {
    =============================== */
 
 footer {
-    background: none;
+    background: rgba(0,0,0, 0.2);
     padding: 3em 4%;
     position: fixed;
+    height: 100%;
     width: 100%;
     z-index: 9999;
     @media @tablet {
@@ -463,13 +471,15 @@ footer {
             a {
                 color: @color-swatch1;
                 @media @mobile {
+                    background-color: none;
                     color: @color-swatch1;
                     padding-right: 15px;
                     padding-top: 12px;
                     padding-bottom: 12px;
                     &:hover {
-                        transition: background-color 0.5s ease;
-                        background-color: fade(@color-swatch1, 10%);
+                        background-color: none;
+                        background: none;
+                        color: @color-swatch1;
                     }
                 }
             }
