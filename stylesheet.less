@@ -122,12 +122,17 @@ body {
             overflow: hidden;
             height: 200px;
             width: 100%;
-            @media @mobile {
-                height: 150px;
-            }
         }
         [class*="column"] + [class*="column"]:last-child { float: none; }
         [class*="column"] + [class*="column"].end { float: none; }
+    }
+}
+
+@media @mobile {
+    .container {
+        .three {
+            height: 135px;
+        }
     }
 }
 
@@ -136,7 +141,6 @@ body {
    =============================== */
 
 header {
-    border-bottom: 1px solid gainsboro;
     padding: 2.5em 0 1.5em;
     .widget { 
         &.companyname {
@@ -166,22 +170,11 @@ header {
 
 .widget {
     &.menusections {
-        display: inline-block;
-        min-height: 30px;
-        margin: 0;
-        width: 64%;
-        @media @tablet {
-            width: 30%;
-        }
         ul {
-            display: inline-block;
-            float: right;
-            padding: 2.5em 0 0;
-            margin: 0;
+            border-bottom: 1px solid gainsboro;
+            border-top: 1px solid gainsboro;
+            max-width: none;
             @media @tablet {
-                /* Hidden until nav icon is clicked */
-                display: none;
-                /* Then these styles are applied */
                 width: 100%;
                 border-top: 2px solid fade(@color-swatch5, 20%);
                 border-bottom: 2px solid fade(@color-swatch5, 20%);
@@ -189,10 +182,7 @@ header {
                 margin: 3em auto 1.5em;
             }
             li {
-                display: block;
-                float: left;
-                list-style: none;
-                margin: 0 1em;
+               
                 &:first-child {
                     margin-left: 0;
                     @media @mobile {
@@ -221,30 +211,44 @@ header {
                 }
             }
         }
-        a {
-            &.menu-pull {
-                display: none;
-                position: relative;
-                @media @tablet {
-                    display: block;
-                    width: 100%;
-                    position: absolute;
-                    top: 0;
-                    background-color: none;
-                    height: 60px;
-                    &:after {
-                        content:"";
-                        background: image('/images/nav-icon.png') no-repeat right top;
-                        float: right;
-                        width: 50px;
-                        height: 50px;
-                        display: inline-block;
-                        border: none;
+    }  /* end menu sections */
+}
+
+.widget {
+    &.extendednavigation {
+        display: inline-block;
+        min-height: 30px;
+        margin: 0;
+        max-width: none;
+        width: 64%;
+        @media @tablet {
+            width: 30%;
+        }
+        ul {
+            float: right;
+            li {
+                display: block;
+                float: left;
+                list-style: none;
+                margin: 0 1em;
+                &:last-child {
+                    margin-right: 0;
+                    a {
+                        padding-right: 0;
+                    }
+                    @media @mobile {
+                        margin: 0;
                     }
                 }
+            &.folder .text {
+                padding: 0 10px;
+            }
+            a {
+                padding: 0 10px;
             }
         }
-    }  /* end menu sections */
+        }
+    }
 }
 
 /* ===============================
@@ -256,6 +260,10 @@ div[role="main"] {
         &.menu {
             .main {
                 padding: 1em 0;
+                display: none;
+                &.selected {
+                    display: block;
+                }
                 ol {  /* Menu sections */
                     float: left;
                     margin: 0;
@@ -277,11 +285,11 @@ div[role="main"] {
                     }  
                 }
                 .menu-items {  /* Menu items container */ 
-                    column-width: 18em;
+                    column-count: 3;
                     column-gap: 60px;
-                    -moz-column-width: 18em;
+                    -moz-column-count: 3;
                     -moz-column-gap: 60px; 
-                    -webkit-column-width: 18em;
+                    -webkit-column-count: 3;
                     -webkit-column-gap: 60px;
                     @media @desktop {
                         column-count: 2;
@@ -376,7 +384,7 @@ div[role="main"] {
                                     &:after {
                                     } 
                                 }
-                                .dietary-icon + .not-spicy-icon {
+                                .not-spicy-icon + .dietary-icon {
                                     display: none;
                                 }
                                 .spicy-icon {
@@ -433,6 +441,9 @@ footer {
         padding: 4.25em 4%;
         position: absolute;
     }
+    @media @mobile {
+        padding: 2em 4%;
+    }
     h1 {
         border-bottom: 1px solid @color-swatch3;
         padding-bottom: 6px;
@@ -474,8 +485,8 @@ footer {
                     background-color: none;
                     color: @color-swatch1;
                     padding-right: 15px;
-                    padding-top: 12px;
-                    padding-bottom: 12px;
+                    padding-top: 5x;
+                    padding-bottom: 5px;
                     &:hover {
                         background-color: none;
                         background: none;

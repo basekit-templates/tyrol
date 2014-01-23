@@ -6,8 +6,11 @@
     <div class="nine columns push">
         <header>
             {{widget('companyname', 'tyrol', {"business": "TYROL"})|raw}}
-            {{widget('menusections', 'menusections1', {})|raw}}
+            {{widget('extendednavigation', 'navigationheader', {})|raw}}
         </header>
+        <nav>
+            {{widget('menusections', 'menusections1', {})|raw}}
+        </nav>
         <div role ="main">
             {{widget('menu', 'menu1', {})|raw}}
         </div>        
