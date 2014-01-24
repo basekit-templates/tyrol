@@ -366,7 +366,7 @@ nav {
                                 .box-sizing {
                                     a {
                                         display: block;
-                                        color: black;
+                                        color: @color-swatch5;
                                         padding: 0;
                                     }
                                 }
@@ -383,12 +383,11 @@ nav {
                     color: white;
                     line-height: @font-swatch6-line-height;
                     letter-spacing: @font-swatch6-letter-spacing;
-                    &:hover {
-                        color: @color-swatch5;
-                        text-decoration: none;
-                    }
-                    @media @tablet {
-                        color: @color-swatch5;
+                    .text {
+                        &:hover {
+                            color: @color-swatch1;
+                            text-decoration: none;
+                        }
                     }
                 }
 
@@ -426,7 +425,7 @@ nav {
                                 color: @color-swatch5;
                             }
                         &:hover {
-                            color: @font-swatch5-color;
+                            color: @color-swatch1;
                             text-decoration: none;
                             @media @tablet {
                                 color: @color-swatch5;
