@@ -21,6 +21,12 @@ Table of Contents -
 
 body {
     background-color: @color-swatch1;
+    background-image: image("/images/wine-img.jpg");
+    background-attachment: fixed;
+    background-repeat: none;
+    @media @tablet {
+        background-size: cover;
+    }
     .wrapper { 
         margin: 0; 
         width: 100%;
@@ -74,16 +80,7 @@ body {
     @media @tablet {
         width: 100%;
     }
-    .image {
-        min-height: 100%;
-        width: auto;
-        position: fixed;
-        @media @tablet {
-            width: 100%;
-            position: relative;
-            z-index: -1;
-        }
-    }
+
 }
 .nine, .row .nine { 
     background: @color-swatch1;
@@ -565,17 +562,17 @@ div[role="main"] {
                         -webkit-column-count: 3;
                         -moz-column-count: 3;
                         column-count: 3;
+                         &.1-columns {
+                            -webkit-column-count: 1;
+                            -moz-column-count: 1;
+                            column-count: 1;
+                        }
                         @media @desktop {
                             -webkit-column-count: 1;
                             -moz-column-count: 1;
                             column-count: 1;  
                         }
                      }
-                     &.1-columns {
-                        -webkit-column-count: 1;
-                        -moz-column-count: 1;
-                        column-count: 1;
-                    }
                     li {  /* Menu items */
                         display: inline-block;
                         padding: 1em 0;
@@ -710,9 +707,11 @@ div[role="main"] {
    =============================== */
 
 footer {
+    background: fade(@color-swatch5, 25%);
     padding: 3em 2.5%;
-    position: absolute;    
+    position: fixed;    
     z-index: 9999;
+    height: 100%;
     @media @tablet {
         padding: 3em 4%;
         position: absolute;
