@@ -6,7 +6,7 @@
     <div class="nine columns push">
         <header>
             {{widget('companyname', 'tyrol', {"business": "TYROL"})|raw}}
-            {{widget('extendednavigation', 'navigationheader', {})|raw}}
+            {{widget('clicktocall', 'tyrol-call', {phoneText: '0800 123 123'})|raw}}
         </header>
         <nav>
             {{widget('menusections', 'menusections1', {})|raw}}
@@ -17,7 +17,7 @@
     </div>
     <div class="three columns pull">
         <footer>
-            {{widget('clicktocall', 'tyrol-call', {phoneText: '0800 123 123'})|raw}}
+            {{widget('extendednavigation', 'navigationheader', {})|raw}}
         </footer>
         {{widget('image', 'wine-img', { 'src': asset('/images/wine-img.jpg'), 'alt': 'Red wine', 'fileName': 'wine-img.jpg', 'fileSize': '', 'imageSize': '', 'imageWidth': '100%'})|raw}}
     </div>
