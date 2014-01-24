@@ -1,0 +1,25 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<div class="row container">
+    <div class="nine columns push">
+        <header>
+            {{widget('companyname', 'tyrol', {"business": "TYROL"})|raw}}
+            {{widget('clicktocall', 'tyrol-call', {phoneText: '0800 123 123'})|raw}}
+        </header>
+        <nav>
+            {{widget('menusections', 'menusections1', {})|raw}}
+        </nav>
+        <div role ="main">
+            {{widget('menu', 'menu1', {})|raw}}
+        </div>        
+    </div>
+    <div class="three columns pull">
+        <footer>
+            {{widget('extendednavigation', 'navigationheader', {})|raw}}
+        </footer>
+    </div>
+</div>
+
+{% endblock %}
