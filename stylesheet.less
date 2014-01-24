@@ -45,7 +45,7 @@ body {
     margin: 0;
     max-width: none;
     @media @tablet {
-        padding: 4%;
+        padding: 0;
         width: 100%;
     }
     .row {
@@ -119,7 +119,6 @@ body {
         }
         .three {
             display: table-caption;
-            overflow: hidden;
             height: 200px;
             width: 100%;
         }
@@ -188,9 +187,10 @@ header {
                 transition: background-color 0.5s ease;
                 background-color: fade(@color-swatch5, 5%);
             }
-            a {
+            a {   
                 color: @color-swatch5;
                 @media @mobile {
+                    background-image:image('/images/ic-desktop-call-mob.png');
                     background-color: none;
                     color: @color-swatch5;
                     padding-right: 15px;
@@ -198,6 +198,7 @@ header {
                     padding-bottom: 5px;
                     &:hover {
                         background-color: none;
+                        background-image:image('/images/ic-desktop-call-mob.png');
                         color: @color-swatch5;
                         padding-right: 15px;
                         padding-top: 5x;
@@ -296,7 +297,7 @@ nav {
         }
     }
     .extendednavigation {
-        position: fixed;
+        position: relative;
         max-width: 100%;
         margin: 0;
         min-height: 40px;
@@ -321,18 +322,19 @@ nav {
                 /* Then these styles are applied */
                 width: 100%;
                 background-color: @color-swatch1;
-                border-top: 1px solid @color-swatch7;
+                border: 1px solid fade(@color-swatch5, 25%);
                 margin: 0;
                 padding: 40px 0 0;
-                position: fixed;
                 left: 0;
+                top: 25px;
+                position: absolute;
             }
             li {
                 border-bottom: 1px solid rgba(255,255,255, 0.15);
                 float: left;
                 display: block;
                 padding: 15px 0;
-                width: 90%;
+                width: 100%;
                 @media @tablet {
                     width: 100%;
                     padding: 1em 0;
@@ -350,17 +352,23 @@ nav {
                         position: absolute;
                         background-color: fade(@color-swatch1, 95%);
                         border: 1px solid fade(@color-swatch5, 25%);
+                        color: black;
                         z-index: 9999;
                         padding: 0;
                         margin: 10px 0 0 0;
-                        width: 90%;
+                        width: 100%;
+                        @media @tablet {
+                            color: @color-swatch5;
+                            background-color: none;
+                        }
                         li {
                             display: block;
                             width: 100%;
+                            color: black;
                                 .box-sizing {
                                     a {
                                         display: block;
-                                        color: @color-swatch5;
+                                        color: black;
                                         padding: 0;
                                     }
                                 }
@@ -378,7 +386,7 @@ nav {
                     line-height: @font-swatch6-line-height;
                     letter-spacing: @font-swatch6-letter-spacing;
                     &:hover {
-                        color: fade(@color-swatch1, 65%);
+                        color: @color-swatch5;
                         text-decoration: none;
                     }
                     @media @tablet {
@@ -397,7 +405,7 @@ nav {
                         font-family: @font-swatch6-font-family;
                         font-size: @font-swatch6-font-size;
                         font-weight: @font-swatch6-font-weight;
-                        color: @color-swatch5;
+                        color: @color-swatch1;
                         line-height: @font-swatch6-line-height;
                         letter-spacing: @font-swatch6-letter-spacing;
                         position: relative;
@@ -420,7 +428,7 @@ nav {
                                 color: @color-swatch5;
                             }
                         &:hover {
-                            color: @font-swatch6-color-hover;
+                            color: @font-swatch5-color;
                             text-decoration: none;
                             @media @tablet {
                                 color: @color-swatch5;
@@ -451,9 +459,9 @@ nav {
         a {
            &.pull {
                display: none;
+               height: 60px;
                @media @tablet {
                    display: block;
-                   position: absolute;
                    margin: 0 auto;
                    width: 100%;
                    top: 0;
@@ -462,7 +470,7 @@ nav {
                        display: block;
                    }
                    &:after {
-                        content:"\039e MENU";
+                        content:"MENU";
                         color: @color-swatch1;
                         font-family: @font-swatch6-font-family;
                         font-size: @font-swatch6-font-size;
@@ -479,7 +487,6 @@ nav {
                         margin: 0 auto;
                         background-color: @color-swatch5;
                         display: inline-block;
-                        position: fixed;
                         border: none;
                         box-shadow: none;
                    }
@@ -703,15 +710,15 @@ div[role="main"] {
 
 footer {
     padding: 3em 2.5%;
-    position: fixed;
-    width: 100%;
+    position: absolute;    
     z-index: 9999;
     @media @tablet {
-        padding: 4.25em 4%;
+        padding: 3em 4%;
         position: absolute;
+        width: 100%;
     }
     @media @mobile {
-        padding: 2em 4%;
+        padding: 1em 4%;
     }
     h1 {
         border-bottom: 1px solid @color-swatch3;
