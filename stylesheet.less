@@ -142,13 +142,23 @@ body {
 
 header {
     padding: 2.5em 0 1.5em;
+    border-bottom: 1px solid fade(@color-swatch5, 25%);
+    @media @desktop {
+        float: left;
+        margin-bottom: 2.5em;
+        width: 100%;
+    }
+    @media @tablet {
+        border-bottom: none;
+        marrgin-bottom: 1em;
+    }
     .widget { 
         &.companyname {
             display: inline-block;
-            margin-right: 5%;
-            width: 30%;
-            @media @tablet {
-                width: 60%;
+            @media @desktop {
+                display: block;
+                float: left;
+                width: 100%;
             }
             a {
                 font-family: @font-swatch10-font-family;
@@ -167,87 +177,272 @@ header {
 /* ===============================
    5. Menu Navigation
    =============================== */
-
-.widget {
-    &.menusections {
-        ul {
-            border-bottom: 1px solid gainsboro;
-            border-top: 1px solid gainsboro;
-            max-width: none;
+nav {
+    clear: both;
+    .widget {
+        &.menusections {
+            border: 1px solid fade(@color-swatch5, 15%);
+            padding: 0 2%;
+            margin: 3em 0 1em;
             @media @tablet {
-                width: 100%;
-                border-top: 2px solid fade(@color-swatch5, 20%);
-                border-bottom: 2px solid fade(@color-swatch5, 20%);
-                padding: 0.25em 0;
-                margin: 3em auto 1.5em;
+                border: none;
+                margin: 1em 0;
             }
-            li {
-               
-                &:first-child {
-                    margin-left: 0;
-                    @media @mobile {
-                        margin: 0;
-                    }
-                }
-                a {
-                    font-family:@font-swatch6-font-family;
-                    font-size:@font-swatch6-font-size;
-                    font-weight: @font-swatch6-font-weight;
-                    color: @font-swatch6-color;
-                    line-height:@font-swatch6-line-height;
-                    letter-spacing: @font-swatch6-letter-spacing;
-                    &:hover {
-                        color: @color-swatch5;
-                    }
-                }
+            ul {
+                margin: 0;
+                display: block;
                 @media @tablet {
-                    border-bottom: 1px solid fade(@color-swatch5, 20%);
-                    margin: 0;
                     width: 100%;
-                    padding: 1em 0;
+                    border-top: 2px solid fade(@color-swatch5, 20%);
+                    border-bottom: 2px solid fade(@color-swatch5, 20%);
+                    padding: 0.25em 0;
+                    margin: 1.5em auto;
                 }
-                &:last-child {
-                    border-bottom: 0;
+                li {
+                    margin: 0 0.5em;
+                    &:first-child {
+                        margin-left: 0;
+                        @media @mobile {
+                            margin: 0;
+                        }
+                        a {
+                            @media @desktop {
+                                padding-left: 0;
+                            }
+                        }
+                    }
+                    a {
+                        font-family:@font-swatch6-font-family;
+                        font-size:@font-swatch6-font-size;
+                        font-weight: @font-swatch6-font-weight;
+                        color: @font-swatch6-color;
+                        line-height:@font-swatch6-line-height;
+                        letter-spacing: @font-swatch6-letter-spacing;
+                        &:hover {
+                            color: @color-swatch5;
+                            text-decoration: none;
+                        }
+                        &:after {
+                            content: "\00b0";
+                            color: fade(@color-swatch5, 25%);
+                            padding-left: 1.5em;
+                            position: relative;
+                            top: 4px;
+                            @media @mobile {
+                                display: none;
+                            }
+                        }
+                    }
+                    @media @tablet {
+                        border-bottom: 1px solid fade(@color-swatch5, 20%);
+                        margin: 0;
+                        width: 100%;
+                        padding: 1em 0;
+                    }
+                    &:last-child {
+                        border-bottom: 0;
+                    }
                 }
             }
-        }
-    }  /* end menu sections */
+        }  /* end menu sections */
+    }
 }
 
 .widget {
     &.extendednavigation {
         display: inline-block;
-        min-height: 30px;
-        margin: 0;
-        max-width: none;
-        width: 64%;
+        float: right;
+        @media @desktop {
+            display: block;
+            float: left;
+            width: 100%;
+        }
         @media @tablet {
-            width: 30%;
+            margin: 1.5em 0;
+        }
+    }
+    .extendednavigation {
+        position: relative;
+        max-width: 100%;
+        margin: 0;
+        min-height: 40px;
+        @media @tablet {
+            background-color: none;
+            border: none;
+        }
+        li {
+            ul {
+                display: none;
+            }
         }
         ul {
-            float: right;
+            display: table;
+            float: none;
+            margin: 0;
+            text-align: left;
+            padding: 0;
+            @media @tablet {
+                /* Hidden until nav icon is clicked */
+                display: none;
+                /* Then these styles are applied */
+                width: 100%;
+                border-top: 1px solid @color-swatch7;
+                margin: 0;
+                padding: 40px 0 0;
+            }
             li {
-                display: block;
                 float: left;
-                list-style: none;
-                margin: 0 1em;
+                display: block;
+                padding: 15px 0;
+                @media @tablet {
+                    width: 100%;
+                    padding: 1em 0;
+                    border-bottom: 1px dotted fade(@color-swatch5, 25%);
+                }
                 &:last-child {
-                    margin-right: 0;
-                    a {
-                        padding-right: 0;
-                    }
-                    @media @mobile {
-                        margin: 0;
+                    @media @tablet {
+                        border-bottom: 1px solid fade(@color-swatch5, 25%);
                     }
                 }
-            &.folder .text {
-                padding: 0 10px;
-            }
-            a {
-                padding: 0 10px;
+
+                &:hover {
+                    ul {
+                        display: block;
+                        position: absolute;
+                        background-color: @color-swatch1;
+                        border: 1px solid fade(@color-swatch5, 25%);
+                        z-index: 500;
+                        padding: 0;
+                        margin: 7px 0 0 0;
+                        li {
+                            display: block;
+                            width: 100%;
+                                .box-sizing {
+                                    a {
+                                        display: block;
+                                        color: @color-swatch5;
+                                        padding: 0;
+                                    }
+                                }
+                        }
+                    }
+                }
+
+                a {
+                    display: block;
+                    padding: 0 15px;
+                    font-family: @font-swatch6-font-family;
+                    font-size: @font-swatch6-font-size;
+                    font-weight: @font-swatch6-font-weight;
+                    color: @font-swatch6-color;
+                    line-height: @font-swatch6-line-height;
+                    letter-spacing: @font-swatch6-letter-spacing;
+                    &:hover {
+                        color: @font-swatch6-color-hover;
+                        text-decoration: underline;
+                        @media @tablet {
+                            color: @color-swatch5;
+                        }
+                    }
+                    @media @tablet {
+                        color: @color-swatch5;
+                    }
+                }
+
+                &.folder {
+                    /* Folder dropdown arrow BG style goes Here */  
+                    margin-right: 10px;            
+                    cursor: pointer;
+                    background-image: none;
+                    .text {
+                        display: block;
+                        padding: 0 15px;
+                        font-family: @font-swatch6-font-family;
+                        font-size: @font-swatch6-font-size;
+                        font-weight: @font-swatch6-font-weight;
+                        color: @font-swatch6-color;
+                        line-height: @font-swatch6-line-height;
+                        letter-spacing: @font-swatch6-letter-spacing;
+                        position: relative;
+                        &:after {
+                            content: "▼";
+                            font-size: 5px;
+                            position: absolute;
+                            top: 1px;
+                            display: block;
+                            z-index: 9999999;
+                            right: 0;
+                            color: @color-swatch6;
+                            @media @tablet {
+                                font-size: 10px;
+                                color: @color-swatch3;
+                                padding-right: 10px;
+                            }
+                        }
+                        @media @tablet {
+                                color: @color-swatch5;
+                            }
+                        &:hover {
+                            color: @font-swatch6-color-hover;
+                            text-decoration: none;
+                            @media @tablet {
+                                color: @color-swatch5;
+                            }
+                        }
+                    }
+                    ul {
+                        padding: 0;
+                        @media @tablet {
+                            margin-top: 14px;
+                        }
+                        li {
+                            a {
+                                .text {
+                                    padding: 0;
+                                    &:after {
+                                        content: "";
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
             }
         }
-        }
+
+        a {
+           &.pull {
+               display: none;
+               @media @tablet {
+                   display: block;
+                   position: absolute;
+                   margin: 0 auto;
+                   width: 100%;
+                   top: 0;
+                   &:hover {
+                       cursor: pointer;
+                       display: block;
+                   }
+                   &:after {
+                        content:"NAVIGATION";
+                        color: @color-swatch1;
+                        font-size: 1.3em;
+                        text-align: center;
+                        width: 100%;
+                        height: 38px;
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        margin: 0 auto;
+                        background-color: lighten(@color-swatch5,10%);
+                        display: inline-block;
+                        position: absolute;
+                        border: none;
+                   }
+               }
+           }
+       }
     }
 }
 
@@ -270,7 +465,7 @@ div[role="main"] {
                     width: 100%;
                 }
                 .menu-header, .menu-subsection-header {  /* Menu section headers */
-                    margin: 2em 0;
+                    margin: 1em 0 2em;
                     h1 {  /* Menu section header */
                         font-family: @font-swatch1-font-family;
                         font-size:@font-swatch1-font-size;
@@ -285,6 +480,7 @@ div[role="main"] {
                     }  
                 }
                 .menu-items {  /* Menu items container */ 
+                    width: 100%;
                     column-count: 3;
                     column-gap: 60px;
                     -moz-column-count: 3;
@@ -306,6 +502,28 @@ div[role="main"] {
                         -moz-column-gap: 30px; 
                         -webkit-column-count: 1;
                         -webkit-column-gap: 30px;
+                    }
+                    > * {
+                        break-inside: avoid;
+                        -webkit-column-break-inside: avoid;
+                        -moz-column-break-inside: avoid;
+                        -ms-column-break-inside: avoid;
+                        -o-column-break-inside: avoid;
+                    }
+                    &.odd {
+                        -webkit-column-count: 3;
+                        -moz-column-count: 3;
+                        column-count: 3;
+                        @media @desktop {
+                            -webkit-column-count: 1;
+                            -moz-column-count: 1;
+                            column-count: 1;  
+                        }
+                     }
+                     &.1-columns {
+                        -webkit-column-count: 1;
+                        -moz-column-count: 1;
+                        column-count: 1;
                     }
                     li {  /* Menu items */
                         display: inline-block;
@@ -330,7 +548,18 @@ div[role="main"] {
                         .inner-item {  /* Item content container */
                             h3 {  /* Item header */  
                             }
-                            img {  /* Item image */
+                            .menu-item-image-wrap {
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                height: 180px;
+                                margin: 0.25em 0 0.75em;
+                                background-position: center;
+                                -webkit-border-radius: 5px;
+                                -moz-border-radius: 5px;
+                                border-radius: 5px;
+                                img {
+                                    display: none;
+                                }
                             }
                             .menu-item-price {  /* Item price */
                                 p {
@@ -353,9 +582,8 @@ div[role="main"] {
                             }
                             .menu-section-item-dietary-props {  /* Nutritional icons */
                                 .dietary-icon {  /* Default icon */
-                                    background-color: @color-swatch6;
+                                    background-color: fade(@color-swatch5, 50%);
                                     border-radius: 0;
-                                    border: 3px solid @color-swatch6;
                                     color: @color-swatch1;
                                     margin: 1em 0.25em 1em 0;
                                     &:before {
@@ -431,10 +659,8 @@ div[role="main"] {
    =============================== */
 
 footer {
-    background: rgba(0,0,0, 0.2);
     padding: 3em 4%;
     position: fixed;
-    height: 100%;
     width: 100%;
     z-index: 9999;
     @media @tablet {
