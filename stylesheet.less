@@ -311,7 +311,6 @@ nav {
         }
         ul {
             display: table;
-            float: none;
             margin: 0;
             text-align: left;
             padding: 0;
@@ -332,8 +331,10 @@ nav {
                 padding: 15px 0;
                 width: 100%;
                 @media @tablet {
+                    background-color: @color-swatch1;
                     width: 100%;
                     padding: 1em 0;
+                    border: 1px solid fade(@color-swatch5, 25%);
                     border-bottom: 1px dotted fade(@color-swatch5, 25%);
                 }
                 &:last-child {
@@ -438,9 +439,14 @@ nav {
                     ul {
                         padding: 0;
                         @media @tablet {
-                            margin-top: 14px;
+                            background-color: darken(@color-swatch1, 10%);
+                            margin-top: 15px;
+                            left: 0;
                         }
                         li {
+                            background-color: darken(@color-swatch1, 10%);
+                            border-right: none;
+                            border-left: none;
                             a {
                                 .text {
                                     color: @color-swatch5;
@@ -450,6 +456,9 @@ nav {
                                     }
                                     &:hover {
                                         color: @color-swatch5;
+                                    }
+                                    @media @tablet {
+                                        padding-left: 1em;
                                     }
                                 }
                             }
@@ -485,7 +494,7 @@ nav {
                         letter-spacing: @font-swatch6-letter-spacing;
                         text-align: center;
                         width: 100%;
-                        height: 60px;
+                        height: 61px;
                         position: absolute;
                         top: 0;
                         right: 0;
@@ -582,7 +591,6 @@ div[role="main"] {
                         }
                      }
                     li {  /* Menu items */
-                        display: inline-block;
                         padding: 1em 0;
                         -webkit-column-break-inside: avoid;
                         -moz-column-break-inside: avoid;
@@ -643,34 +651,32 @@ div[role="main"] {
                                         font-size: bkscale(@font-swatch5-font-size, 0.9);
                                     }  
                                 }
-                                .vegetarian-icon {
-                                    &:after {
-                                        content: "v";
-                                    }              
-                                }
-                                .vegan-icon {
-                                    &:after {
-                                        content: "vg";
-                                    }              
-                                }
-                                .nutFree-icon {
-                                    &:after {
-                                    } 
-                                }
-                                .glutenFree-icon {
-                                    &:after {
-                                    } 
-                                }
-                                .dairyFree-icon {
-                                    &:after {
-                                    } 
-                                }
-                                .not-spicy-icon.dietary-icon {
+
+                                .not.spicy-icon.dietary-icon {
                                     display: none;
+                                }
+                                .medium-spicy-icon.dietary-icon {
+                                    background-color: orange;
+                                }
+                                .medium-spicy-icon {
+                                    &:after {
+                                        content: "ms";
+                                    }
+                                }
+                                .hot-icon.dietary-icon {
+                                    background-color: #860b14;
+                                }
+                                .hot-icon {
+                                    &:after {
+                                        content: "s";
+                                    }
+                                }
+                                .hot-icon.dietary-icon {
+                                    background-color: green;
                                 }
                                 .spicy-icon {
                                     &:after {
-                                        content: "s";
+                                        content: "ls";
                                     }
                                 }
                             }  /* end nutritional icons */
