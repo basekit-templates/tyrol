@@ -69,6 +69,7 @@ body {
     position: relative; 
     padding-left: 4%;
     padding-right: 4%;
+    overflow: hidden;
 }
 
 [class*="column"] + [class*="column"]:last-child { float: right; }
@@ -85,8 +86,21 @@ body {
 }
 .nine, .row .nine { 
     background: @color-swatch1;
+    height: 100%;
+    min-height: 1400px;
+    position: relative;
     width: 75%; 
+    &:after {
+        background-color: @color-swatch1;
+        content: "";
+        width: 100%;
+        height: 10000px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
     @media @tablet {
+        min-height: 800px;
         width: 100%;
     }
 }
@@ -516,6 +530,8 @@ nav {
    =============================== */
 
 div[role="main"] {
+    position: relative;
+    height: 100%;
     .widget {
         &.menu {
             .main {
@@ -651,15 +667,41 @@ div[role="main"] {
                                         font-size: bkscale(@font-swatch5-font-size, 0.9);
                                     }  
                                 }
-
+                                .nutfree-icon {
+                                    &:before {
+                                        content: "nf";
+                                    }  
+                                }
+                                .vegetarian-icon {
+                                    &:before {
+                                        content: "v";
+                                    }
+                                }
+                                .vegan-icon {
+                                    &:before {
+                                        content: "vegan";
+                                        position: relative;
+                                        top: -2px;
+                                    }
+                                }
+                                .glutenfree-icon {
+                                    &:before {
+                                        content: "gf";
+                                    }
+                                }
+                                .dairyfree-icon {
+                                    &:before {
+                                        content: "df";
+                                    }
+                                }
                                 .not-spicy-icon.dietary-icon {
-                                    display: none;
+                                        display: none;
                                 }
                                 .medium-spicy-icon.dietary-icon {
                                     background-color: orange;
                                 }
                                 .medium-spicy-icon {
-                                    &:after {
+                                    &:before {
                                         content: "ms";
                                     }
                                 }
@@ -667,7 +709,7 @@ div[role="main"] {
                                     background-color: #860b14;
                                 }
                                 .hot-icon {
-                                    &:after {
+                                    &:before {
                                         content: "s";
                                     }
                                 }
@@ -675,10 +717,10 @@ div[role="main"] {
                                     background-color: green;
                                 }
                                 .spicy-icon {
-                                    &:after {
+                                    &:before {
                                         content: "ls";
                                     }
-                                }
+                                }                
                             }  /* end nutritional icons */
                         }  /* end item content container */
                     }  /* end menu items */
@@ -749,6 +791,31 @@ footer {
     .companyaddress {
         p {
             padding-bottom: 4px;
+        }
+    }
+}
+
+/* ===============================
+   8. Widgets
+   =============================== */
+
+.widget {
+    &.contactform fieldset button.btn, &.dropbox button, &.paypalbuynow .widget.button.paypal, &.signupform button.btn {
+        background-color: @color-swatch3;
+        color: @color-swatch1;
+        &:hover {
+            background-color: lighten(@color-swatch3, 10%);
+        }
+    }
+    &.button button.btn, .tweet a {
+        background-color: fade(@color-swatch4, 15%);
+    }
+    .line {
+        background-color: fade(@color-swatch4, 25%);
+    }
+    .clicktocall {
+        &:hover {
+            background-color: none;
         }
     }
 }
