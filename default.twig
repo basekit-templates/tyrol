@@ -13,17 +13,10 @@
         </div>  
     </div>
     <div class="three columns pull">
-        <footer>
+        <footer class="footer">
             {{widget('extendednavigation', 'navigationheader', {})|raw}}
         </footer>
     </div>
 </div>
-
-<footer>
-    <div class="wrapper clearfix">
-    {{widget('content', 'footercolumn1content', {"content":"<p>Lorem Ipsum Dolor</p>"})|raw}}
-    </div>
-        {{widget('profile', 'footercolumn1socialicons', { 'profileType':'socialicons', 'socialicons':'profile'})|raw}}
-</footer>
 
 {% endblock %}

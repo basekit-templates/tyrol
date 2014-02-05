@@ -760,37 +760,39 @@ div[role="main"] {
    =============================== */
 
 footer {
-    background: fade(@color-swatch5, 25%);
-    padding: 3em 2.5%;
-    position: fixed;    
-    height: 100%;
-    width: 25%;
-    @media @tablet {
-        padding: 3em 4%;
-        position: relative;
-        width: 100%;
-    }
-    @media @mobile {
-        padding: 1em 4%;
-    }
-    h1 {
-        border-bottom: 1px solid @color-swatch3;
-        padding-bottom: 6px;
-        margin-bottom: 1.25em;
-    }
-    .columns {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .nine {
-        text-align: right;
-        @media @mobile {
-            text-align: center;
+    &.footer {
+        background: fade(@color-swatch5, 25%);
+        padding: 3em 2.5%;
+        position: fixed;    
+        height: 100%;
+        width: 25%;
+        @media @tablet {
+            padding: 3em 4%;
+            position: relative;
+            width: 100%;
         }
-    }
-    .companyaddress {
-        p {
-            padding-bottom: 4px;
+        @media @mobile {
+            padding: 1em 4%;
+        }
+        h1 {
+            border-bottom: 1px solid @color-swatch3;
+            padding-bottom: 6px;
+            margin-bottom: 1.25em;
+        }
+        .columns {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .nine {
+            text-align: right;
+            @media @mobile {
+                text-align: center;
+            }
+        }
+        .companyaddress {
+            p {
+                padding-bottom: 4px;
+            }
         }
     }
 }
