@@ -57,7 +57,6 @@ body {
     }
     .row {
         width: auto; 
-        max-width: none; 
         min-width: 0; 
         margin: 0 -15px; 
     }
@@ -69,7 +68,6 @@ body {
     position: relative; 
     padding-left: 4%;
     padding-right: 4%;
-    overflow: hidden;
 }
 
 [class*="col"] + [class*="col"]:last-child { float: right; }
@@ -90,15 +88,6 @@ body {
     min-height: 1400px;
     position: relative;
     width: 75%; 
-    &:after {
-        background-color: @color-swatch1;
-        content: "";
-        width: 100%;
-        height: 10000px;
-        position: absolute;
-        top: 100%;
-        left: 0;
-    }
     @media @tablet {
         min-height: 800px;
         width: 100%;
