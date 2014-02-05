@@ -63,7 +63,7 @@ body {
     }
  }
 
-.column, .columns { 
+.col, .cols { 
     float: left; 
     min-height: 1px; 
     position: relative; 
@@ -72,8 +72,8 @@ body {
     overflow: hidden;
 }
 
-[class*="column"] + [class*="column"]:last-child { float: right; }
-[class*="column"] + [class*="column"].end { float: left; }
+[class*="col"] + [class*="col"]:last-child { float: right; }
+[class*="col"] + [class*="col"].end { float: left; }
 
 .three, .row .three { 
     width: 25%; 
@@ -134,8 +134,8 @@ body {
             height: 200px;
             width: 100%;
         }
-        [class*="column"] + [class*="column"]:last-child { float: none; }
-        [class*="column"] + [class*="column"].end { float: none; }
+        [class*="col"] + [class*="col"]:last-child { float: none; }
+        [class*="col"] + [class*="col"].end { float: none; }
     }
 }
 
@@ -663,6 +663,8 @@ div[role="main"] {
                                     border-radius: 0;
                                     color: @color-swatch1;
                                     margin: 1em 0.25em 1em 0;
+                                    padding: 0 6px;
+                                    width: auto;
                                     &:before {
                                         font-size: bkscale(@font-swatch5-font-size, 0.9);
                                     }  
@@ -680,8 +682,6 @@ div[role="main"] {
                                 .vegan-icon {
                                     &:before {
                                         content: "vegan";
-                                        position: relative;
-                                        top: -2px;
                                     }
                                 }
                                 .glutenfree-icon {
