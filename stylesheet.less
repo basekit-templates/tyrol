@@ -34,6 +34,15 @@ body {
     }
 }
 
+
+::-moz-selection {
+    background-color: fade(@color-swatch3, 50%);
+}
+
+::selection {
+    background-color: fade(@color-swatch3, 50%);
+}
+
 /* ===============================
    2. Media Queries
    =============================== */
@@ -140,7 +149,7 @@ body {
    4. Header
    =============================== */
 
-header {
+.bk-header {
     padding: 2.5em 0 1.5em;
     @media @desktop {
         float: left;
@@ -185,21 +194,25 @@ header {
                 width: 100%;
             }
             &:hover {
-                transition: background-color 0.5s ease;
-                background-color: fade(@color-swatch5, 5%);
+                @media @mobile {
+                    transition: background-color 0.5s ease;
+                    background-color: fade(@color-swatch5, 5%);
+                }
             }
             a {   
+                background: none;
                 color: @color-swatch5;
                 @media @mobile {
                     background-image:image('/images/ic-desktop-call-mob.png');
-                    background-color: none;
+                    background-repeat: no-repeat;
+                    background-position: center left;
                     color: @color-swatch5;
                     padding-right: 15px;
                     padding-top: 5x;
                     padding-bottom: 5px;
                     &:hover {
-                        background-color: none;
                         background-image:image('/images/ic-desktop-call-mob.png');
+                        background-repeat: no-repeat;
                         color: @color-swatch5;
                         padding-right: 15px;
                         padding-top: 5x;
@@ -217,6 +230,7 @@ header {
    =============================== */
 nav {
     clear: both;
+}
     .widget {
         &.menusections {
             border: 1px solid fade(@color-swatch5, 15%);
@@ -224,7 +238,7 @@ nav {
             margin: 1em 0;
             @media @tablet {
                 border: none;
-                margin: 1em 0;
+                margin: 2em 0 1em;
             }
             ul {
                 margin: 0;
@@ -284,7 +298,6 @@ nav {
             }
         }  /* end menu sections */
     }
-}
 
 .widget {
     &.extendednavigation {
@@ -350,7 +363,7 @@ nav {
                     ul {
                         display: block;
                         position: absolute;
-                        background-color: fade(@color-swatch1, 90%);
+                        background-color: fade(@color-swatch5, 50%);
                         border: 1px solid fade(@color-swatch5, 25%);
                         color: @color-swatch5;
                         z-index: 9999;
@@ -417,7 +430,6 @@ nav {
                             color: @color-swatch5;
                         }
                         &:after {
-                            content: "▼";
                             font-size: 8px;
                             position: absolute;
                             top: 1px;
@@ -447,18 +459,21 @@ nav {
                             left: 0;
                         }
                         li {
-                            background-color: darken(@color-swatch1, 10%);
+                            background-color: fade(@color-swatch5, 80%);
                             border-right: none;
                             border-left: none;
+                            &:last-child {
+                                border-bottom: 0;
+                            }
                             a {
                                 .text {
-                                    color: @color-swatch5;
+                                    color: @color-swatch1;
                                     padding: 0;
                                     &:after {
                                         content: "";
                                     }
                                     &:hover {
-                                        color: @color-swatch5;
+                                        color: @color-swatch1;
                                     }
                                     @media @tablet {
                                         padding-left: 1em;
@@ -477,6 +492,7 @@ nav {
                display: none;
                min-height: 60px;
                @media @tablet {
+                   background-color: @color-swatch5;
                    display: block;
                    margin: 0 auto;
                    position: absolute;
@@ -487,26 +503,8 @@ nav {
                        display: block;
                    }
                    &:after {
-                        content:"MENU";
-                        color: @color-swatch1;
-                        font-family: @font-swatch6-font-family;
-                        font-size: @font-swatch6-font-size;
-                        font-weight: @font-swatch6-font-weight;
-                        color: white;
-                        line-height: 60px;
-                        letter-spacing: @font-swatch6-letter-spacing;
-                        text-align: center;
-                        width: 100%;
-                        height: 61px;
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        left: 0;
-                        margin: 0 auto;
-                        background-color: @color-swatch5;
-                        display: inline-block;
-                        border: none;
-                        box-shadow: none;
+                        right: 20px;
+                        top: 22px;
                    }
                }
            }
@@ -521,6 +519,7 @@ nav {
 div[role="main"] {
     position: relative;
     height: 100%;
+}
     .widget {
         &.menu {
             .main {
@@ -648,7 +647,8 @@ div[role="main"] {
                             }
                             .menu-section-item-dietary-props {  /* Nutritional icons */
                                 .dietary-icon {  /* Default icon */
-                                    background-color: fade(@color-swatch5, 50%);
+                                    background-color: fade(@color-swatch5, 40%);
+                                    ont-size: bkscale(@font-swatch5-font-size, 0.92);
                                     border-radius: 0;
                                     color: @color-swatch1;
                                     margin: 1em 0.25em 1em 0;
@@ -658,58 +658,18 @@ div[role="main"] {
                                         font-size: bkscale(@font-swatch5-font-size, 0.9);
                                     }  
                                 }
-                                .nutfree-icon {
-                                    &:before {
-                                        content: "nf";
-                                    }  
-                                }
-                                .vegetarian-icon {
-                                    &:before {
-                                        content: "v";
-                                    }
-                                }
-                                .vegan-icon {
-                                    &:before {
-                                        content: "vegan";
-                                    }
-                                }
-                                .glutenfree-icon {
-                                    &:before {
-                                        content: "gf";
-                                    }
-                                }
-                                .dairyfree-icon {
-                                    &:before {
-                                        content: "df";
-                                    }
-                                }
                                 .not-spicy-icon.dietary-icon {
-                                        display: none;
+                                    display: none;
                                 }
                                 .medium-spicy-icon.dietary-icon {
-                                    background-color: orange;
-                                }
-                                .medium-spicy-icon {
-                                    &:before {
-                                        content: "ms";
-                                    }
+                                    background-color: darken(orange, 5%);
                                 }
                                 .hot-icon.dietary-icon {
-                                    background-color: #860b14;
-                                }
-                                .hot-icon {
-                                    &:before {
-                                        content: "s";
-                                    }
+                                    background-color: darken(#860b14, 5%);
                                 }
                                 .spicy-icon.dietary-icon {
-                                    background-color: green;
-                                }
-                                .spicy-icon {
-                                    &:before {
-                                        content: "ls";
-                                    }
-                                }                
+                                    background-color: darken(green, 5%);
+                                }           
                             }  /* end nutritional icons */
                         }  /* end item content container */
                     }  /* end menu items */
@@ -742,46 +702,141 @@ div[role="main"] {
             }/* end main */
         }  /* end menu */
     }  /* end widget */
-}  /* end main */
+
+/* ===============================
+   BLOG
+   =============================== */
+
+.widget {
+    &.bloglistposts {
+        .blog-post-item {
+            border-bottom: 1px dotted fade(@color-swatch5, 50%);
+        }
+
+    }
+}
+.blog-post-item {
+    margin: 1.5em 0;
+    padding-bottom: 1em;
+    h2 {
+        margin: 0.5em 0 0.25em;
+        a {
+            font-family: @font-swatch2-font-family;
+            font-size: @font-swatch2-font-size;
+            font-weight: @font-swatch2-font-weight;
+            line-height: @font-swatch2-line-height;
+            color: @font-swatch2-color;
+            letter-spacing: @font-swatch2-letter-spacing;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.blog-post-metadata {
+    background-color: transparent;
+    background-image: none;
+    margin-top: 0;
+    text-align: left;
+    time {
+        display: block;
+        margin: 0.75em 0;
+    }
+    li {
+        display: inline;
+    }
+}
+
+.blog-list-footer {
+    background-color: transparent;
+    background-image: none;
+}
+
+.blog-post-more-link {
+    float: left;
+    width: 100%;
+}
+
+.blogsearch {
+    form {
+        button {
+            padding: 10px;
+            color: @font-swatch7-color;
+            font-size: @font-swatch6-font-size;
+            font-weight: @font-swatch6-font-weight;
+            line-height: @font-swatch6-line-height;
+            background-color: @font-swatch7-background-color;
+            border: none;
+        }
+    }
+    label {
+        display: block;
+    }
+    input {
+        display: inline-block;
+        height: 42px;
+        width: 80%;
+        @media @mobile {
+            width: 65%;
+        }
+    }
+    .blog-search-submit-button {
+        display: inline-block;
+        margin-left: 2%;
+        width: 15%;
+        @media @mobile {
+            width: 30%;
+        }
+    }
+} 
+.blog-post-feature-image-wrap {  /* Blog post feature image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 250px;
+    width: 100%;
+    img {
+        display: none;
+    }
+}
 
 /* ===============================
    7. Footer
    =============================== */
 
-footer {
-    &.footer {
-        background: fade(@color-swatch5, 25%);
-        padding: 3em 2.5%;
-        position: fixed;    
-        height: 100%;
-        width: 25%;
-        @media @tablet {
-            padding: 3em 4%;
-            position: relative;
-            width: 100%;
-        }
+.bk-footer {
+    background: fade(@color-swatch5, 25%);
+    padding: 3em 2.5%;
+    position: fixed;    
+    height: 100%;
+    width: 25%;
+    @media @tablet {
+        padding: 3em 4%;
+        position: relative;
+        width: 100%;
+    }
+    @media @mobile {
+        padding: 1em 4%;
+    }
+    h1 {
+        border-bottom: 1px solid @color-swatch3;
+        padding-bottom: 6px;
+        margin-bottom: 1.25em;
+    }
+    .cols {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .nine {
+        text-align: right;
         @media @mobile {
-            padding: 1em 4%;
+            text-align: center;
         }
-        h1 {
-            border-bottom: 1px solid @color-swatch3;
-            padding-bottom: 6px;
-            margin-bottom: 1.25em;
-        }
-        .columns {
-            padding-left: 0;
-            padding-right: 0;
-        }
-        .nine {
-            text-align: right;
-            @media @mobile {
-                text-align: center;
-            }
-        }
-        .companyaddress {
-            p {
-                padding-bottom: 4px;
-            }
+    }
+    .companyaddress {
+        p {
+            padding-bottom: 4px;
         }
     }
 }
@@ -791,16 +846,6 @@ footer {
    =============================== */
 
 .widget {
-    &.contactform fieldset button.btn, &.dropbox button, &.paypalbuynow .widget.button.paypal, &.signupform button.btn {
-        background-color: @color-swatch3;
-        color: @color-swatch1;
-        &:hover {
-            background-color: lighten(@color-swatch3, 10%);
-        }
-    }
-    &.button button.btn, .tweet a {
-        background-color: fade(@color-swatch4, 15%);
-    }
     .line {
         background-color: fade(@color-swatch4, 25%);
     }
@@ -809,4 +854,126 @@ footer {
             background-color: none;
         }
     }
+}
+
+/* ===============================
+   Slideshow
+   =============================== */
+
+.widget.responsiveslideshow {
+    .slideshow-image-list,
+    .slideshow-widget {
+        min-height: 450px;
+        @media @tablet {
+            min-height: 350px;
+        }
+        @media @mobile {
+            min-height: 280px;
+            height: 280px;
+        }
+    }
+    .title {
+        display: block;
+    }
+    .content-wrapper {
+        background: rgba(0,0,0,0.5);
+    }
+    .slideshow-widget {
+        /* Arrows */
+        .btn-prev,
+        .btn-next {
+            font-size: 0;
+            z-index: 11;
+            text-indent: -99999px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.5);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .btn-prev {
+            &:after {
+                content: "\2190";
+                color: #fff;
+                top: 7px;
+            }
+        }
+        .btn-next {
+            &:after {
+                content: "\2192";
+                color: #fff;
+                top: 7px;
+            }
+        }
+        /* Play Button */
+        .btn-play {
+            background: rgba(0,0,0,0.5);
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            margin: 0 auto;
+            height: 60px;
+            width: 80px;
+            @media @mobile {
+                left: 38%;
+            }
+            &:after {
+                color: #fff;
+                letter-spacing: -4px;
+                top: 2px;
+            }
+        }
+    }
+    /* Slideshow Controls */
+    .slideshow-widget-controls {
+        .dot {
+            width: 11px;
+            height: 11px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            &.selected {
+                background-color: @color-swatch1;
+            }
+        }
+    }
+}
+
+/* ===============================
+   FORMs & BUTTONS
+   =============================== */
+
+input, textarea {
+    background: white;
+    border: 1px solid fade(@color-swatch5, 40%) !important;
+    color: black;
+}
+
+fieldset {
+    padding: 1.5em 0;
+}
+
+.signupform fieldset button, fieldset button {
+    height: 45px;
+}
+
+.widget.profile form fieldset input {
+    background: white;
+}
+
+.widget.profile form button {
+    padding-top: 8px;
+}
+
+/* ===============================
+  MISC
+   =============================== */
+
+hr.line {
+    background-color: fade(@color-swatch6, 20%);
+}
+
+.youtube, .map {
+    margin: 1.5em 0;
 }

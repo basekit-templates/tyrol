@@ -3,18 +3,20 @@
 {% block content %}
 
 <div class="row container">
-    <div class="nine cols push">
-        <header>
-            {{widget('companyname', 'tyrol', {"business": "TYROL"})|raw}}
+    <div class="nine col push">
+        <header class="bk-header">
+            {{widget('companyname', 'tyrol', {"business": "profile"})|raw}}
             {{widget('clicktocall', 'tyrol-call', {phoneText: '0800 123 123'})|raw}}
         </header>  
         <div class="main clearfix">
             {{zone('main')|raw}}
         </div>  
     </div>
-    <div class="three cols pull">
-        <footer class="footer">
+    <div class="three col pull">
+        <footer class="bk-footer">
+        {% if pages|length > 1 %}
             {{widget('extendednavigation', 'navigationheader', {})|raw}}
+        {% endif %}
         </footer>
     </div>
 </div>
