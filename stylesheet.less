@@ -583,6 +583,12 @@ div[role="main"] {
                     }
                     li {  /* Menu items */
                         padding: 1em 0;
+                        break-inside: avoid;
+                        -webkit-column-break-inside: avoid;
+                        -moz-column-break-inside: avoid;
+                        -ms-column-break-inside: avoid;
+                        -o-column-break-inside: avoid;
+                        page-break-inside: avoid;
                         &.menu-item-promoted { /* Promoted menu item */
                             .inner-item { /* Item content container */
                                 h3 {
@@ -629,7 +635,7 @@ div[role="main"] {
                             }
                             .menu-section-item-dietary-props {  /* Nutritional icons */
                                 .dietary-icon {  /* Default icon */
-                                    background-color: fade(@color-swatch5, 30%);
+                                    background-color: fade(@color-swatch5, 40%);
                                     border-radius: 0;
                                     color: @color-swatch1;
                                     margin: 1em 0.25em 1em 0;
