@@ -8,7 +8,11 @@ Table of Contents -
   4. Header
   5. Menu Navigation
   6. Menu
-  7. Footer
+  7. Blog
+  8. Footer
+  9. Slideshow
+  10. Forms & Buttons
+  11. Misc
 
 */
 
@@ -36,11 +40,11 @@ body {
 
 
 ::-moz-selection {
-    background-color: fade(@color-swatch3, 50%);
+    background-color: fade(@color-swatch3, 65%);
 }
 
 ::selection {
-    background-color: fade(@color-swatch3, 50%);
+    background-color: fade(@color-swatch3, 65%);
 }
 
 /* ===============================
@@ -95,6 +99,7 @@ body {
     background: @color-swatch1;
     height: 100%;
     min-height: 1400px;
+    padding-bottom: 40px;
     position: relative;
     width: 75%; 
     @media @tablet {
@@ -293,6 +298,9 @@ nav {
                     }
                     &:last-child {
                         border-bottom: 0;
+                        a:after {
+                            display: none;
+                        }
                     }
                 }
             }
@@ -330,6 +338,7 @@ nav {
             margin: 0;
             text-align: left;
             padding: 0;
+            width: 100%;
             @media @tablet {
                 /* Hidden until nav icon is clicked */
                 display: none;
@@ -363,7 +372,7 @@ nav {
                     ul {
                         display: block;
                         position: absolute;
-                        background-color: fade(@color-swatch5, 50%);
+                        background-color: fade(@color-swatch5, 65%);
                         border: 1px solid fade(@color-swatch5, 25%);
                         color: @color-swatch5;
                         z-index: 9999;
@@ -377,13 +386,13 @@ nav {
                             display: block;
                             width: 100%;
                             color: black;
-                                .box-sizing {
-                                    a {
-                                        display: block;
-                                        color: @color-swatch5;
-                                        padding: 0;
-                                    }
+                            .box-sizing {
+                                a {
+                                    display: block;
+                                    color: @color-swatch5;
+                                    padding: 0;
                                 }
+                            }
                         }
                     }
                 }
@@ -397,6 +406,12 @@ nav {
                     color: @color-swatch1;
                     line-height: @font-swatch6-line-height;
                     letter-spacing: @font-swatch6-letter-spacing;
+                    &:hover {
+                        color: @color-swatch1;
+                        @media @tablet {
+                            color: @color-swatch5;
+                        }
+                    }
                     .text {
                         &:hover {
                             color: @color-swatch1;
@@ -416,6 +431,11 @@ nav {
                     margin-right: 10px;            
                     cursor: pointer;
                     background-image: none;
+                    &:after {
+                        border: 5px solid transparent;
+                        border-top-color: @color-swatch1;
+                        top: 50%;
+                    }
                     .text {
                         display: block;
                         padding: 0 15px;
@@ -428,20 +448,6 @@ nav {
                         position: relative;
                         @media @tablet {
                             color: @color-swatch5;
-                        }
-                        &:after {
-                            font-size: 8px;
-                            position: absolute;
-                            top: 1px;
-                            display: block;
-                            z-index: 9999999;
-                            right: 0;
-                            color: @color-swatch6;
-                            @media @tablet {
-                                font-size: 10px;
-                                color: @color-swatch6;
-                                padding-right: 10px;
-                            }
                         }
                         &:hover {
                             color: @color-swatch1;
@@ -474,6 +480,9 @@ nav {
                                     }
                                     &:hover {
                                         color: @color-swatch1;
+                                        @media @tablet {
+                                            color: @color-swatch1;
+                                        }
                                     }
                                     @media @tablet {
                                         padding-left: 1em;
@@ -572,35 +581,8 @@ div[role="main"] {
                         -webkit-column-count: 1;
                         -webkit-column-gap: 30px;
                     }
-                    > * {
-                        break-inside: avoid;
-                        -webkit-column-break-inside: avoid;
-                        -moz-column-break-inside: avoid;
-                        -ms-column-break-inside: avoid;
-                        -o-column-break-inside: avoid;
-                    }
-                    &.odd {
-                        -webkit-column-count: 3;
-                        -moz-column-count: 3;
-                        column-count: 3;
-                         &.1-columns {
-                            -webkit-column-count: 1;
-                            -moz-column-count: 1;
-                            column-count: 1;
-                        }
-                        @media @desktop {
-                            -webkit-column-count: 1;
-                            -moz-column-count: 1;
-                            column-count: 1;  
-                        }
-                     }
                     li {  /* Menu items */
                         padding: 1em 0;
-                        -webkit-column-break-inside: avoid;
-                        -moz-column-break-inside: avoid;
-                        -ms-column-break-inside: avoid;
-                        -o-column-break-inside: avoid;
-                        break-inside: avoid;
                         &.menu-item-promoted { /* Promoted menu item */
                             .inner-item { /* Item content container */
                                 h3 {
@@ -647,16 +629,13 @@ div[role="main"] {
                             }
                             .menu-section-item-dietary-props {  /* Nutritional icons */
                                 .dietary-icon {  /* Default icon */
-                                    background-color: fade(@color-swatch5, 40%);
-                                    ont-size: bkscale(@font-swatch5-font-size, 0.92);
+                                    background-color: fade(@color-swatch5, 30%);
                                     border-radius: 0;
                                     color: @color-swatch1;
                                     margin: 1em 0.25em 1em 0;
-                                    padding: 0 6px;
+                                    padding: 2px 6px 1px;
                                     width: auto;
-                                    &:before {
-                                        font-size: bkscale(@font-swatch5-font-size, 0.9);
-                                    }  
+                                    font-size: bkscale(@font-swatch5-font-size, 0.85);
                                 }
                                 .not-spicy-icon.dietary-icon {
                                     display: none;
@@ -704,7 +683,7 @@ div[role="main"] {
     }  /* end widget */
 
 /* ===============================
-   BLOG
+   7. Blog
    =============================== */
 
 .widget {
@@ -802,7 +781,7 @@ div[role="main"] {
 }
 
 /* ===============================
-   7. Footer
+   8. Footer
    =============================== */
 
 .bk-footer {
@@ -842,22 +821,7 @@ div[role="main"] {
 }
 
 /* ===============================
-   8. Widgets
-   =============================== */
-
-.widget {
-    .line {
-        background-color: fade(@color-swatch4, 25%);
-    }
-    .clicktocall {
-        &:hover {
-            background-color: none;
-        }
-    }
-}
-
-/* ===============================
-   Slideshow
+   9. Slideshow
    =============================== */
 
 .widget.responsiveslideshow {
@@ -941,12 +905,12 @@ div[role="main"] {
 }
 
 /* ===============================
-   FORMs & BUTTONS
+   10. Forms & Buttons
    =============================== */
 
 input, textarea {
     background: white;
-    border: 1px solid fade(@color-swatch5, 40%) !important;
+    border: 1px solid fade(@color-swatch5, 25%) !important;
     color: black;
 }
 
@@ -967,13 +931,37 @@ fieldset {
 }
 
 /* ===============================
-  MISC
+  11. Misc
    =============================== */
+
+blockquote {
+    background-color: transparent;
+    margin: 20px;
+    &:before {
+        color: @color-swatch3;
+    }
+}
 
 hr.line {
     background-color: fade(@color-swatch6, 20%);
+    height: 1px;
 }
 
 .youtube, .map {
     margin: 1.5em 0;
+}
+
+.blogsearch .blog-search-submit-button {
+    -webkit-font-smoothing: antialiased;
+}
+
+.widget {
+    .line {
+        background-color: fade(@color-swatch4, 25%);
+    }
+    .clicktocall {
+        &:hover {
+            background-color: none;
+        }
+    }
 }
