@@ -5,6 +5,7 @@
 <div class="row container">
     <div class="nine col push">
         <header class="bk-header">
+            {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png'),"showTplWidget":"0"})|raw}}
             {{widget('companyname', 'tyrol', {"business": "profile"})|raw}}
             {{widget('clicktocall', 'tyrol-call', {phoneText: '0800 123 123'})|raw}}
         </header>  
