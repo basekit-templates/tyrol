@@ -38,6 +38,16 @@ body {
     }
 }
 
+body.edit { /* border for logo on editor */
+    .widget {
+        &.logo {
+            img {
+                border: 1px dashed red;
+                margin: 0 0 30px;
+            }
+        }
+    }
+}
 
 ::-moz-selection {
     background-color: fade(@color-swatch3, 65%);
@@ -184,6 +194,10 @@ body {
                 padding: 0;
             }
         }  /* end companyname */
+        &.logo {
+            display: inline-block;
+            max-width: 14%;
+        }
     } /* end widget */
     .widget {
         &.clicktocall {
