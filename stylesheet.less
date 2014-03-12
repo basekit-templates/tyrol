@@ -44,9 +44,14 @@ body.edit { /* border for logo on editor */
             img {
                 border: 1px dashed red;
                 margin: 0;
-                max-width: 100px;
             }
         }
+    }
+}
+
+.bk-pt-menu {
+    .bk-header {
+        border-bottom: none;
     }
 }
 
@@ -109,12 +114,13 @@ body.edit { /* border for logo on editor */
 .nine, .row .nine { 
     background: @color-swatch1;
     height: 100%;
-    min-height: 1400px;
     padding-bottom: 40px;
-    position: relative;
+    position: fixed;
+    overflow-x: scroll;
     width: 75%; 
     @media @tablet {
-        min-height: 800px;
+        position: relative;
+        overflow-x: visible;
         width: 100%;
     }
 }
@@ -166,7 +172,9 @@ body.edit { /* border for logo on editor */
    =============================== */
 
 .bk-header {
-    padding: 2.5em 0 1.5em;
+    border-bottom: 1px solid fade(@color-swatch5, 15%);
+    padding: 2.5em 0;
+    margin-bottom: 2em;
     @media @desktop {
         float: left;
         margin-bottom: 0.5em;
@@ -197,6 +205,9 @@ body.edit { /* border for logo on editor */
         }  /* end companyname */
         &.logo {
             display: inline-block;
+            .logo img {
+                max-width: 80px;
+            }
         }
     } /* end widget */
     .widget {
@@ -295,7 +306,7 @@ nav {
                         }
                         &:after {
                             content: "\00b0";
-                            color: fade(@color-swatch5, 25%);
+                            color: fade(@color-swatch5, 40%);
                             padding-left: 1.5em;
                             position: relative;
                             top: 4px;
@@ -323,22 +334,19 @@ nav {
 
 .widget {
     &.extendednavigation {
-        @media @desktop {
-            display: block;
-            float: left;
-            width: 100%;
-        }
+        float: left;
+        width: 100%;
         @media @tablet {
             margin: 1.5em 0;
         }
     }
     .extendednavigation {
         position: relative;
-        max-width: 100%;
         margin: 0;
         min-height: 60px;
         z-index: 99999;
         float: left;
+        width:100%;
         @media @tablet {
             background-color: none;
             border: none;
@@ -811,6 +819,7 @@ div[role="main"] {
     @media @tablet {
         padding: 3em 4%;
         position: relative;
+        overflow-x: visible;
         width: 100%;
     }
     @media @mobile {
