@@ -670,7 +670,8 @@ div[role="main"] {
                     .clearfix;
                     }  /* end menu items */
                 }  /* end menu items container */  
-                .menu-subsection {
+                .menu-subsection .menu-subsection-promoted {
+                	float: left;
                     border: 1px solid fade(@color-swatch5, 25%);
                     padding: 5%;
                     margin: 3em 0;
@@ -683,18 +684,10 @@ div[role="main"] {
                     .menu-subsection-description {
                     }                
                 }
-                .menu-info {
-                    p {  /* Menu note */
-                    }
-                    dl {  /* Nutritional key */
-                        dt, dd {
-                        }
-                        dt {  /* Nutritional icon */
-                        }
-                        dd {    /* Nutritional text */
-                        }   
-                    }/* end dl */
-                }  /* end menu-info */
+                .menu-subsection {
+	                margin: 3em 0;
+	                padding: 0;
+                }
             }/* end main */
         }  /* end menu */
     }  /* end widget */
