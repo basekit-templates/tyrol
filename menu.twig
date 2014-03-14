@@ -2,23 +2,25 @@
 
 {% block content %}
 
-<div class="row container">
-    <div class="nine col push">
-        <header class="bk-header">
-            {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png'),"showTplWidget":"0"})|raw}}
-            {{widget('companyname', 'tyrol', {"business": "TYROL"})|raw}}
-            {{widget('clicktocall', 'tyrol-call', {phoneText: '0800 123 123'})|raw}}
-        </header>
-        <div role ="main">
-            {{zone('main')|raw}}
-        </div>        
-    </div>
-    <div class="three col pull">
-        <footer class="bk-footer">
-        {% if pages|length > 1 %}
-            {{widget('extendednavigation', 'navigationheader', {})|raw}}
-        {% endif %}
-        </footer>
+<div class="bk-pt-menu">
+    <div class="row container">
+        <div class="nine col push">
+            <header class="bk-header">
+                {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png'),"showTplWidget":"0"})|raw}}
+                {{widget('companyname', 'tyrol', {"business": "TYROL"})|raw}}
+                {{widget('clicktocall', 'tyrol-call', {phoneText: '0800 123 123'})|raw}}
+            </header>
+            <div role ="main">
+                {{zone('main')|raw}}
+            </div>        
+        </div>
+        <div class="three col pull">
+            <footer class="bk-footer">
+            {% if pages|length > 1 %}
+                {{widget('extendednavigation', 'navigationheader', {})|raw}}
+            {% endif %}
+            </footer>
+        </div>
     </div>
 </div>
 
