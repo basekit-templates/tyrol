@@ -2,6 +2,7 @@
     "name":"Tyrol",
     "thumbnail":"tyrol.png",
     "screenshot":"tyrol.png",
+    "templateType":"menu",
     "tags": {
     "en": ["clean", "muted", "sidebar", "elegant", "professional", "light", "formal", "serif"],
     "es": ["tbc"],
